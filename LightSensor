@@ -1,0 +1,17 @@
+double lightLevel;
+    void setup() {
+    pinMode(A0, INPUT);;
+}
+
+void loop() {
+    double sensor = analogRead(A0);
+    
+    lightLevel = map(sensor, 0.0, 4095.0, 0.0, 100.0);
+    
+    if (lightlevel > 50) {
+    Particle.publish("light", String(lightLevel), PRIVATE);
+    delay(2000);
+    }
+    
+    
+}
